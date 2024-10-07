@@ -5,6 +5,9 @@ inputs:
   author:
     description: 'The author of your project'
     required: true
+  email:
+    description: 'The email of the author (optional)'
+    required: false
 
 runs:
   using: 'composite'
@@ -13,5 +16,10 @@ runs:
       run: cargo install licenselint-cli
       shell: bash
     - name: run licenselint
-      run: licenselint check --author "${{ inputs.author }}"
+      run: |
+        if [ -n "${{ inputs.email }}" ]; then
+          licenselint check --author "${{ inputs.author }}" --email "${{ inputs.email }}"
+        else
+          licenselint check --author "${{ inputs.author }}"
+        fi
       shell: bash

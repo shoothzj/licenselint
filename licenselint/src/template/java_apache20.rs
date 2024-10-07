@@ -20,18 +20,20 @@ impl JavaApache20Template {
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-    "#;
+ */"#;
 }
 
 impl LintTemplate for JavaApache20Template {
     fn check(&self, config: &Config, filename: &str, content: &str) -> Vec<Issue> {
         let mut issues = Vec::new();
 
-        let expected_license = Self::TEMPLATE.replace("{author}", &config.formatted_author);
+        let escaped_template = regex::escape(Self::TEMPLATE);
 
-        let license_regex = expected_license.replace("{year}", r"\d{4}");
-        let re = Regex::new(&format!(r"(?m)^{}", license_regex)).unwrap();
+        let expected_license = escaped_template
+            .replace(r"\{author\}", &regex::escape(&config.formatted_author))
+            .replace(r"\{year\}", r"\d{4}");
+
+        let re = Regex::new(&format!(r"(?m)^{}", expected_license)).unwrap();
 
         if !re.is_match(content) {
             issues.push(Issue::new(filename));
@@ -49,6 +51,6 @@ impl LintTemplate for JavaApache20Template {
             return content.to_string();
         }
 
-        format!("{}\n{}", license_text, content)
+        format!("{}\n\n{}", license_text, content)
     }
 }

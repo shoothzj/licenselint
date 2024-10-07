@@ -38,14 +38,21 @@ fn format(current_dir: &Path, linter: &Linter) {
 
 fn main() {
     let matches = Command::new("licenselint-cli")
-        .version("0.0.1")
+        .version("0.0.2")
         .about("A command-line tool for linting and fixing license formatting issues")
         .arg(
             Arg::new("author")
                 .short('a')
                 .long("author")
-                .value_parser(clap::builder::ValueParser::string()) // Updated clap syntax
+                .value_parser(clap::builder::ValueParser::string())
                 .help("The author name to include in the license"),
+        )
+        .arg(
+            Arg::new("email")
+                .short('e')
+                .long("email")
+                .value_parser(clap::builder::ValueParser::string())
+                .help("The author email to include in the license"),
         )
         .subcommand(Command::new("check").about("Check files for lint issues"))
         .subcommand(Command::new("format").about("Automatically format files to fix lint issues"))
@@ -58,6 +65,16 @@ fn main() {
         .map(|s| s.as_str())
         .unwrap_or("Unknown Author")
         .to_string();
+
+    let formatted_email = matches
+        .get_one::<String>("email")
+        .map(|s| s.as_str());
+
+    let formatted_author = if let Some(email) = formatted_email {
+        format!("{} <{}>", formatted_author, email)
+    } else {
+        formatted_author
+    };
 
     let current_year = Local::now().year().to_string();
 

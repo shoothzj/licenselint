@@ -2,6 +2,8 @@ use crate::config::Config;
 use crate::issue::Issue;
 
 pub mod clang_format_apache20;
+pub mod cmake_apache20;
+pub mod cmake_lists_apache20;
 pub mod cpp_apache20;
 pub mod go_apache20;
 pub mod hpp_apache20;
