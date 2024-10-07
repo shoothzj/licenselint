@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "licenselint-cli",
+    "licenselint",
+]
+resolver = "2"

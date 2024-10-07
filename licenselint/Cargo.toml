@@ -1,0 +1,15 @@
+[package]
+name = "licenselint"
+version = "0.0.1"
+edition = "2021"
+description = "license lint library"
+license = "Apache-2.0"
+repository = "https://github.com/shoothzj/licenselint"
+homepage = "https://github.com/shoothzj/licenselint"
+categories = ["development-tools"]
+keywords = ["development"]
+
+[dependencies]
+chrono = "0.4"
+ignore = "0.4"
+regex = "1.11.0"

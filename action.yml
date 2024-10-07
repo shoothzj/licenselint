@@ -1,0 +1,17 @@
+name: 'LicenseLint Action'
+description: 'Run LicenseLint on project'
+
+inputs:
+  author:
+    description: 'The author of your project'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: install licenselint
+      run: cargo install licenselint-cli
+      shell: bash
+    - name: run licenselint
+      run: licenselint check --author "${{ inputs.author }}"
+      shell: bash
