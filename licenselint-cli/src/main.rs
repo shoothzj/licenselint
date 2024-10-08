@@ -66,9 +66,7 @@ fn main() {
         .unwrap_or("Unknown Author")
         .to_string();
 
-    let formatted_email = matches
-        .get_one::<String>("email")
-        .map(|s| s.as_str());
+    let formatted_email = matches.get_one::<String>("email").map(|s| s.as_str());
 
     let formatted_author = if let Some(email) = formatted_email {
         format!("{} <{}>", formatted_author, email)
