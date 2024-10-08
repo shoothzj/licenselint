@@ -65,7 +65,7 @@ impl LintTemplate for XmlApache20Template {
         }
 
         format!(
-            "{}\n{}\n\n{}\n",
+            "{}\n{}\n{}\n",
             Self::XML_HEADER,
             license_text,
             remaining_content
@@ -168,7 +168,6 @@ mod tests {
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-
 int main() {{
     return 0;
 }}
@@ -207,7 +206,6 @@ int main() {{
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-
 int main() {
     return 0;
 }

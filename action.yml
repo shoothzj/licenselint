@@ -18,8 +18,8 @@ runs:
     - name: run licenselint
       run: |
         if [ -n "${{ inputs.email }}" ]; then
-          licenselint --author "${{ inputs.author }}" --email "${{ inputs.email }}" check 
+          licenselint --author "${{ inputs.author }}" --email "${{ inputs.email }}" check
         else
-          licenselint --author "${{ inputs.author }}" check 
+          licenselint --author "${{ inputs.author }}" check
         fi
       shell: bash
