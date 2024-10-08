@@ -83,7 +83,10 @@ mod tests {
 // limitations under the License."#;
 
         let issues = template.check(&config, "main.cpp", content);
-        assert!(issues.is_empty(), "There should be no issues with a valid license");
+        assert!(
+            issues.is_empty(),
+            "There should be no issues with a valid license"
+        );
     }
 
     #[test]
@@ -101,7 +104,11 @@ mod tests {
 "#;
 
         let issues = template.check(&config, "main.cpp", content);
-        assert_eq!(issues.len(), 1, "There should be one issue for an invalid license");
+        assert_eq!(
+            issues.len(),
+            1,
+            "There should be one issue for an invalid license"
+        );
     }
 
     #[test]
@@ -113,8 +120,7 @@ mod tests {
             "1997".to_string(),
         );
 
-        let content = r#"
-int main() {
+        let content = r#"int main() {
     return 0;
 }
 "#;
@@ -141,7 +147,10 @@ int main() {{
         );
 
         let formatted_content = template.format(&config, "main.cpp", content);
-        assert_eq!(formatted_content, expected, "The license should be added to the content");
+        assert_eq!(
+            formatted_content, expected,
+            "The license should be added to the content"
+        );
     }
 
     #[test]
@@ -173,6 +182,9 @@ int main() {
 "#;
 
         let formatted_content = template.format(&config, "main.cpp", content);
-        assert_eq!(formatted_content, content, "Content should remain unchanged if the license is already present");
+        assert_eq!(
+            formatted_content, content,
+            "Content should remain unchanged if the license is already present"
+        );
     }
 }
