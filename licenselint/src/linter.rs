@@ -10,10 +10,12 @@ use crate::template::hpp_apache20::HppApache20Template;
 use crate::template::in_apache20::InApache20Template;
 use crate::template::ipp_apache20::IppApache20Template;
 use crate::template::java_apache20::JavaApache20Template;
+use crate::template::properties_apache20::PropertiesApache20Template;
 use crate::template::python_apache20::PythonApache20Template;
 use crate::template::rust_apache20::RustApache20Template;
 use crate::template::toml_apache20::TomlApache20Template;
 use crate::template::tpp_apache20::TppApache20Template;
+use crate::template::xml_apache20::XmlApache20Template;
 use crate::template::yaml_apache20::YamlApache20Template;
 use crate::template::LintTemplate;
 use ignore::WalkBuilder;
@@ -53,10 +55,12 @@ impl<'a> Linter<'a> {
                 self.add_template("in", InApache20Template {});
                 self.add_template("ipp", IppApache20Template {});
                 self.add_template("java", JavaApache20Template {});
+                self.add_template("properties", PropertiesApache20Template {});
                 self.add_template("py", PythonApache20Template {});
                 self.add_template("rs", RustApache20Template {});
                 self.add_template("toml", TomlApache20Template {});
                 self.add_template("tpp", TppApache20Template {});
+                self.add_template("xml", XmlApache20Template {});
                 self.add_template("yaml", YamlApache20Template {});
                 self.add_template("yml", YamlApache20Template {});
             }
