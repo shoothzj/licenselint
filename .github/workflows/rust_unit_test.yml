@@ -12,7 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: setup OpenGemini
-        uses: shoothzj/setup-opengemini-action@main
       - name: Run unit tests
         run: cargo test

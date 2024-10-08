@@ -10,10 +10,12 @@ pub mod hpp_apache20;
 pub mod in_apache20;
 pub mod ipp_apache20;
 pub mod java_apache20;
+pub mod properties_apache20;
 pub mod python_apache20;
 pub mod rust_apache20;
 pub mod toml_apache20;
 pub mod tpp_apache20;
+pub mod xml_apache20;
 pub mod yaml_apache20;
 
 pub trait LintTemplate {
