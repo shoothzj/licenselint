@@ -1,6 +1,7 @@
 use crate::config::Config;
 use crate::issue::Issue;
 
+pub mod arkts_apache20;
 pub mod clang_format_apache20;
 pub mod cmake_apache20;
 pub mod cmake_lists_apache20;
@@ -15,6 +16,7 @@ pub mod python_apache20;
 pub mod rust_apache20;
 pub mod toml_apache20;
 pub mod tpp_apache20;
+pub mod typescript_apache20;
 pub mod xml_apache20;
 pub mod yaml_apache20;
 

@@ -1,6 +1,7 @@
 use crate::config::Config;
 use crate::issue::Issue;
 use crate::license::License;
+use crate::template::arkts_apache20::ArktsApache20Template;
 use crate::template::clang_format_apache20::ClangFormatApache20Template;
 use crate::template::cmake_apache20::CmakeApache20Template;
 use crate::template::cmake_lists_apache20::CmakeListsApache20Template;
@@ -15,6 +16,7 @@ use crate::template::python_apache20::PythonApache20Template;
 use crate::template::rust_apache20::RustApache20Template;
 use crate::template::toml_apache20::TomlApache20Template;
 use crate::template::tpp_apache20::TppApache20Template;
+use crate::template::typescript_apache20::TypeScriptApache20Template;
 use crate::template::xml_apache20::XmlApache20Template;
 use crate::template::yaml_apache20::YamlApache20Template;
 use crate::template::LintTemplate;
@@ -48,6 +50,7 @@ impl<'a> Linter<'a> {
                 self.add_exact_template(".clang-format", ClangFormatApache20Template {});
                 self.add_exact_template("CMakeLists.txt", CmakeListsApache20Template {});
 
+                self.add_template("ets", ArktsApache20Template {});
                 self.add_template("cmake", CmakeApache20Template {});
                 self.add_template("cpp", CppApache20Template {});
                 self.add_template("go", GoApache20Template {});
@@ -60,6 +63,7 @@ impl<'a> Linter<'a> {
                 self.add_template("rs", RustApache20Template {});
                 self.add_template("toml", TomlApache20Template {});
                 self.add_template("tpp", TppApache20Template {});
+                self.add_template("ts", TypeScriptApache20Template {});
                 self.add_template("xml", XmlApache20Template {});
                 self.add_template("yaml", YamlApache20Template {});
                 self.add_template("yml", YamlApache20Template {});
