@@ -1,6 +1,6 @@
 [package]
 name = "licenselint-cli"
-version = "0.0.2"
+version = "0.0.3"
 edition = "2021"
 description = "License lint cli"
 license = "Apache-2.0"
@@ -8,7 +8,7 @@ repository = "https://github.com/shoothzj/licenselint"
 homepage = "https://github.com/shoothzj/licenselint"
 
 [dependencies]
-licenselint = {version = "0.0.2", path = "../licenselint"}
+licenselint = {version = "0.0.3", path = "../licenselint"}
 clap = { version = "4.5", features = ["derive"] }
 chrono = "0.4.38"
 
