@@ -38,7 +38,7 @@ fn format(current_dir: &Path, linter: &Linter) {
 
 fn main() {
     let matches = Command::new("licenselint-cli")
-        .version("0.0.4")
+        .version("0.0.5")
         .about("A command-line tool for linting and fixing license formatting issues")
         .arg(
             Arg::new("author")
