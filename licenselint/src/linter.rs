@@ -127,8 +127,9 @@ impl<'a> Linter<'a> {
         F: FnMut(&Path) -> Result<(), io::Error>,
     {
         let mut errors = Vec::new();
+        let mut builder = WalkBuilder::new(dir);
 
-        let walker = WalkBuilder::new(dir)
+        builder
             .ignore(false)
             .hidden(false)
             .follow_links(true)
@@ -136,8 +137,11 @@ impl<'a> Linter<'a> {
             .require_git(false)
             .git_exclude(true)
             .git_global(true)
-            .git_ignore(true)
-            .build();
+            .git_ignore(true);
+
+        builder.add_ignore(".licenselintignore");
+
+        let walker = builder.build();
 
         for entry in walker {
             match entry {
